@@ -14,7 +14,7 @@
 
 - [x] 터미널 조작
 - [x] 권한 실습
-- [ ] Docker
+- [x] Docker
 - [ ] Dockerfile
 - [ ] 포트
 - [ ] 마운트
@@ -151,50 +151,81 @@ $ ls -ld test_folder
 drwxrwxrwx 2 developer developer 4096 Nov  7 18:44 test_folder
 ```
 
-Docker 설치 및 기본 점검
-버전 확인
-developer@:/mnt/c/Users//dev-workstation$ docker --version
-Docker version 29.9.2, build a82e528
+## Docker 설치 및 기본 점검
 
-데몬 동작 확인 (docker info)
-developer@:/mnt/c/Users//dev-workstation$ docker info
+### 버전 확인
+
+```
+developer@****:/mnt/c/Users/****$ docker --version
+Docker version 29.9.2, build a82e528
+```
+
+### 데몬 동작 확인 (docker info)
+
+```
+developer@****:/mnt/c/Users/****$ docker info
 Server:
-Containers: 0
-Images: 0
-Server Version: 29.9.2
-Storage Driver: overlayfs
-Operating System: Docker Desktop
-OSType: linux
-Architecture: x86_64
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 29.9.2
+ Storage Driver: overlayfs
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 24
+ Total Memory: 15.25GiB
+ Name: docker-desktop
+```
 
 ➡️ Containers / Images 항목이 정상 출력되어 데몬이 동작 중임을 확인
 
-Docker 운영/검증 로그
-이미지 실행 (자동 pull + run)
-developer@:/mnt/c/Users//dev-workstation$ docker run hello-world
+## Docker 운영/검증 로그
+
+### 이미지 실행 (자동 pull + run)
+
+```
+developer@****:/mnt/c/Users/****$ docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
 Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
+```
 
-이미지 목록 (docker images)
-developer@:/mnt/c/Users//dev-workstation$ docker images
-IMAGE ID DISK USAGE CONTENT SIZE
-hello-world:latest c567b231f656 25.9kB 9.49kB
+### 이미지 목록 (docker images)
 
-컨테이너 목록 (docker ps -a)
-developer@:/mnt/c/Users//dev-workstation$ docker ps -a
-CONTAINER ID IMAGE COMMAND STATUS NAMES
-4401b585a9e0 hello-world "/hello" Exited (0) 17 seconds ago pensive_mahavira
+```
+developer@****:/mnt/c/Users/****$ docker images
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   c567b231f656   25.9kB       9.49kB         U (In Use)
+```
 
-컨테이너 로그 (docker logs)
-developer@:/mnt/c/Users//dev-workstation$ docker logs 4401b585a9e0
+### 컨테이너 목록 (docker ps -a)
+
+```
+developer@****:/mnt/c/Users/****$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                     NAMES
+4401b585a9e0   hello-world   "/hello"   18 seconds ago   Exited (0) 17 seconds ago  pensive_mahavira
+```
+
+### 컨테이너 로그 (docker logs)
+
+```
+developer@****:/mnt/c/Users/****$ docker logs 4401b585a9e0
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
+```
 
-자원 사용량 (docker stats)
-developer@:/mnt/c/Users//dev-workstation$ docker stats --no-stream
+### 자원 사용량 (docker stats)
+
+```
+developer@****:/mnt/c/Users/****$ docker stats --no-stream
+```
 
 ➡️ 실행 중인 컨테이너가 없어 출력 없음 (hello-world는 즉시 종료되는 컨테이너)
