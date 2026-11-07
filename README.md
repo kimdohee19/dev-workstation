@@ -229,3 +229,30 @@ developer@****:/mnt/c/Users/****$ docker stats --no-stream
 ```
 
 ➡️ 실행 중인 컨테이너가 없어 출력 없음 (hello-world는 즉시 종료되는 컨테이너)
+
+컨테이너 실행/중지/목록 확인 (nginx)
+hello-world는 실행 즉시 종료되는 컨테이너라, 실행이 유지되는 nginx로
+실행 → 중지 → 상태 변화를 확인했다.
+
+1) nginx 백그라운드 실행
+$ docker run -d --name my-nginx nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+Status: Downloaded newer image for nginx:latest
+3c83663afaa35d8c222ee7a96d3cb4741c1546f6fa49c81e68d22da02691e2ce
+
+2) 실행 중인 컨테이너 확인 (docker ps)
+   $ docker ps
+CONTAINER ID   IMAGE   STATUS         PORTS    NAMES
+3c83663afaa3   nginx   Up 8 seconds   80/tcp   my-nginx
+
+3) 컨테이너 중지 (docker stop)
+   $ docker stop my-nginx
+my-nginx
+
+4) 전체 목록에서 중지 확인 (docker ps -a)
+5) $ docker ps -a
+CONTAINER ID   IMAGE         STATUS                     NAMES
+3c83663afaa3   nginx         Exited (0) 5 seconds ago   my-nginx
+4401b585a9e0   hello-world   Exited (0) 51 minutes ago  pensive_mahavira
+
