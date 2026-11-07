@@ -42,7 +42,7 @@ drwxrwxrwx 1 developer developer 4096 Nov  7 17:36 .git
 -rwxrwxrwx 1 developer developer  372 Nov  7 17:36 README.md
 ```
 
-### 빈 파일 생성 (폴더 생성 + 이동)
+### 생성 (폴더 + 이동 + 빈 파일)
 
 ```
 developer@****:/mnt/c/Users/****/dev-workstation$ mkdir practice
@@ -68,14 +68,14 @@ developer@****:/mnt/c/Users/****/dev-workstation/practice$ cp test.txt test_copy
 developer@****:/mnt/c/Users/****/dev-workstation/practice$ mv test_copy.txt test_rename.txt
 ```
 
-### 이동 + 폴더 복사
+### 이동 / 복사 (디렉토리)
 
 ```
 developer@****:/mnt/c/Users/****/dev-workstation/practice$ cd ..
 developer@****:/mnt/c/Users/****/dev-workstation$ cp -r practice practice_copy
 ```
 
-### 폴더 이름 변경
+### 이름 변경 (폴더)
 
 ```
 developer@****:/mnt/c/Users/****/dev-workstation$ mv practice_copy practice_rename
