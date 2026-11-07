@@ -115,32 +115,38 @@ drwxrwxrwx 1 developer developer 4096 Nov  7 18:11 practice
 
 ## 권한 실습 (Permissions)
 
-### 파일 권한 변경 (소유자 읽기/쓰기 전용)
+### 파일 권한 변경
+
+- **대상:** `test_file.txt`
+- **목표:** 소유자만 읽고 쓸 수 있도록 설정 (`600`)
 
 ```
-# 변경 전
-developer@****:/mnt/c/Users/****/dev-workstation$ ls -l test_file.txt
+# [변경 전]
+$ ls -l test_file.txt
 -rw-r--r-- 1 developer developer 0 Nov  7 18:45 test_file.txt
 
-# 명령어 실행
-developer@****:/mnt/c/Users/****/dev-workstation$ chmod 600 test_file.txt
+# [명령어 실행]
+$ chmod 600 test_file.txt
 
-# 변경 후
-developer@****:/mnt/c/Users/****/dev-workstation$ ls -l test_file.txt
+# [변경 후]
+$ ls -l test_file.txt
 -rw------- 1 developer developer 0 Nov  7 18:45 test_file.txt
 ```
 
-### 디렉토리 권한 변경 (모든 사용자 모든 권한 허용)
+### 디렉토리 권한 변경
+
+- **대상:** `test_folder`
+- **목표:** 모든 사용자가 읽고, 쓰고, 이동할 수 있도록 설정 (`777`)
 
 ```
-# 변경 전
-developer@****:/mnt/c/Users/****/dev-workstation$ ls -ld test_folder
+# [변경 전]
+$ ls -ld test_folder
 drwxr-xr-x 2 developer developer 4096 Nov  7 18:44 test_folder
 
-# 명령어 실행
-developer@****:/mnt/c/Users/****/dev-workstation$ chmod 777 test_folder
+# [명령어 실행]
+$ chmod 777 test_folder
 
-# 변경 후
-developer@****:/mnt/c/Users/****/dev-workstation$ ls -ld test_folder
+# [변경 후]
+$ ls -ld test_folder
 drwxrwxrwx 2 developer developer 4096 Nov  7 18:44 test_folder
 ```
